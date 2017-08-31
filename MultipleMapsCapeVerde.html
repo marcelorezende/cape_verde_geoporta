@@ -1,0 +1,54 @@
+<html>
+<title>Maps for Cape Verde</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+
+	.block1 {
+		color: red;
+		width: 100%;
+		border: 1px solid green;
+		position: relative;
+	}
+
+	.block2 {
+		color: black;
+		size: big;
+		border: 0px solid green;
+		position: absolute;
+		top: 30px;
+		right: 30px;
+	}
+
+</style>
+<body>
+ <div width="100%" height="100%">
+	<div id="option1" class="group block1"><iframe width="100%" height="100%" scrolling="no" frameborder="no" src="https://fusiontables.google.com/embedviz?q=select+col192+from+1ya_WhasYcPExf65SN6UMzh5bnkCA2PiM5GyO8WCX&viz=MAP&h=false&lat=15.919135942511456&lng=-23.93766489160157&t=1&z=9&l=col192&y=2&tmplt=2&hml=KML"></iframe></div>
+	<div id="option2" class="group block1"><iframe width="100%" height="100%" scrolling="no" frameborder="no" src="https://fusiontables.google.com/embedviz?q=select+col192+from+1ya_WhasYcPExf65SN6UMzh5bnkCA2PiM5GyO8WCX&viz=MAP&h=false&lat=15.919135942511456&lng=-23.93766489160157&t=1&z=9&l=col192&y=7&tmplt=7&hml=KML"></iframe></div>
+	<div id="option3" class="group block1"><iframe width="100%" height="100%" scrolling="no" frameborder="no" src="https://fusiontables.google.com/embedviz?q=select+col192+from+1ya_WhasYcPExf65SN6UMzh5bnkCA2PiM5GyO8WCX&viz=MAP&h=false&lat=15.919135942511456&lng=-23.93766489160157&t=1&z=9&l=col192&y=8&tmplt=8&hml=KML"></iframe></div>
+	<div id="option4" class="group block1"><iframe width="100%" height="100%" scrolling="no" frameborder="no" src="https://fusiontables.google.com/embedviz?q=select+col192+from+1ya_WhasYcPExf65SN6UMzh5bnkCA2PiM5GyO8WCX&viz=MAP&h=false&lat=15.919135942511456&lng=-23.93766489160157&t=1&z=9&l=col192&y=9&tmplt=9&hml=KML"></iframe></div>
+	<div id="option5" class="group block1"><iframe width="100%" height="100%" scrolling="no" frameborder="no" src="https://fusiontables.google.com/embedviz?q=select+col6+from+1ya_WhasYcPExf65SN6UMzh5bnkCA2PiM5GyO8WCX&viz=MAP&h=false&lat=15.919135942511456&lng=-23.93766489160157&t=1&z=9&l=col6&y=10&tmplt=10&hml=TWO_COL_LAT_LNG"></iframe></div>
+	<div class="block2">
+	<p> <i>Layers : </i>
+	<select id="selectMe">
+	  <option value="option1">Erosao</option>
+	  <option value="option2">Uso da Terra</option>
+	  <option value="option3">Mudanca do Uso</option>
+	  <option value="option4">Produtividade</option>
+	  <option value="option5">Parcelas</option>
+	</select>
+	</p>
+	
+	</div>
+<div>
+</body>
+<script>
+	$(document).ready(function () {
+	  $('.group').hide();
+	  $('#option1').show();
+	  $('#selectMe').change(function () {
+		$('.group').hide();
+		$('#'+$(this).val()).show();
+	  })
+	});
+</script>
+</html>
