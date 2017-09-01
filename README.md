@@ -1,1 +1,1 @@
-# cape_verde_geoportal.github.io
+# geoportals.github.io
