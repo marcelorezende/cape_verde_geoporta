@@ -26,7 +26,7 @@ html, body, #googft-mapCanvas {
     var mapDiv = document.getElementById('googft-mapCanvas');
     mapDiv.style.width = isMobile ? '100%' : '100%';
     mapDiv.style.height = isMobile ? '100%' : '100%';
-    var map = new google.maps.Map(mapDiv, {
+    map = new google.maps.Map(mapDiv, {
       center: new google.maps.LatLng(15.953469255424332, -23.94315805566407),
       zoom: 9,
       mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -127,6 +127,66 @@ html, body, #googft-mapCanvas {
 </head>
 
 <body>
+<div id="controls" class="nicebox">
+  <div>
+  <select id="census-variable">
+     <option value="all">All</option>
+    <option value="layer1">Erosion</option>
+    <option value="layer2">Land Use</option>
+    <option value="layer3">Land Use Change</option>
+    <option value="layer4">Land Productivity</option>
+    <option value="layer5">Plots</option>
+  </select>
+  </div>
+
+</div>
+<div id="data-box" class="nicebox">
+  <label id="data-label" for="data-value"></label>
+  <span id="data-value"></span>
+</div>
   <div id="googft-mapCanvas"></div>
+ 
+ <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script>
+
+$('#census-variable').change(function() {
+  var val = $(this).val();
+  layer1.setMap(null);
+  layer2.setMap(null);
+  layer3.setMap(null);
+  layer4.setMap(null);
+  layer5.setMap(null);
+  switch (val) {
+      case "all":
+      if (layer1.getMap() == null) layer1.setMap(map);
+      if (layer2.getMap() == null) layer2.setMap(map);
+      if (layer3.getMap() == null) layer3.setMap(map);
+      if (layer4.getMap() == null) layer4.setMap(map);
+      if (layer5.getMap() == null) layer5.setMap(map);
+	  break;
+    case "layer1":
+      if (layer1.getMap() == null) layer1.setMap(map);
+      break;
+    case "layer2":
+      if (layer2.getMap() == null) layer2.setMap(map);
+      break;
+    case "layer3":
+      if (layer3.getMap() == null) layer3.setMap(map);
+      break;
+    case "layer4":
+      if (layer4.getMap() == null) layer4.setMap(map);
+      break;
+    case "layer5":
+      if (layer5.getMap() == null) layer5.setMap(map);
+      break;
+  }
+
+})
+
+</script>
+  
 </body>
 </html>
